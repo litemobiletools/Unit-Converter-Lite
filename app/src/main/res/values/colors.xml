@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <!-- Primary Colors -->
+    <color name="colorPrimary">#3F6FEA</color>           <!-- Vibrant Blue -->
+    <color name="colorPrimaryVariant">#5A85F9</color>    <!-- Slightly lighter blue -->
+    <color name="colorOnPrimary">#FFFFFF</color>         <!-- White text/icons on primary -->
+
+    <!-- Secondary Colors -->
+    <color name="colorSecondary">#26A69A</color>         <!-- Teal accent -->
+    <color name="colorSecondaryVariant">#2CC1B3</color>  <!-- Lighter teal -->
+    <color name="colorOnSecondary">#FFFFFF</color>       <!-- White text/icons on secondary -->
+
+    <!-- Backgrounds -->
+    <color name="colorBackground">#F5F7FF</color>       <!-- Light soft background -->
+    <color name="colorSurface">#FFFFFF</color>          <!-- Cards and buttons background -->
+
+    <!-- Text Colors -->
+    <color name="colorOnBackground">#212121</color>     <!-- Dark text -->
+    <color name="colorOnSurface">#212121</color>        <!-- Dark text for cards/buttons -->
+
+    <!-- Error -->
+    <color name="colorError">#B00020</color>
+    <color name="colorOnError">#FFFFFF</color>
+</resources>
