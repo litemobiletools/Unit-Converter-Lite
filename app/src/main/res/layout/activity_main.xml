@@ -98,7 +98,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
                                 android:inputType="none"
-                                android:focusable="true"
+                                android:focusable="false"
                                 android:clickable="true"
                                 android:gravity="center"
                                 android:textAlignment="center"/>
@@ -106,6 +106,7 @@
 
 
                         <ImageButton
+                            android:id="@+id/btnSwap"
                             android:layout_width="48dp"
                             android:layout_height="48dp"
                             android:background="@drawable/bg_circle"
@@ -132,7 +133,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
                                 android:inputType="none"
-                                android:focusable="true"
+                                android:focusable="false"
                                 android:clickable="true"
                                 android:gravity="center"
                                 android:textAlignment="center"/>
