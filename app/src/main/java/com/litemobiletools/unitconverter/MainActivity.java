@@ -38,7 +38,14 @@ public class MainActivity extends AppCompatActivity {
                 "Meter",
                 "Kilometer",
                 "Centimeter",
-                "Millimeter"
+                "Millimeter",
+                "Micrometer",
+                "Nanometer",
+                "Mile",
+                "Yard",
+                "Foot",
+                "Inch",
+                "Light Year"
         };
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
@@ -84,44 +91,64 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        AutoCompleteTextView unitDropdown = findViewById(R.id.unitDropdown);
-        // Load array
-        String[] units2 = getResources().getStringArray(R.array.length_units);
-        // Adapter
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(
-                this,
-                R.layout.dropdown_item,   // custom layout
-                units
-        );
-        unitDropdown.setAdapter(adapter);
-        // Show dropdown on click
-        unitDropdown.setOnClickListener(v -> unitDropdown.showDropDown());
-        // Handle selection
-        unitDropdown.setOnItemClickListener((parent, view, position, id) -> {
-            String selectedUnit = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, "Selected: " + selectedUnit, Toast.LENGTH_SHORT).show();
-        });
+//        AutoCompleteTextView unitDropdown = findViewById(R.id.unitDropdown);
+//        // Load array
+//        String[] units2 = getResources().getStringArray(R.array.length_units);
+//        // Adapter
+//        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(
+//                this,
+//                R.layout.dropdown_item,   // custom layout
+//                units
+//        );
+//        unitDropdown.setAdapter(adapter);
+//        // Show dropdown on click
+//        unitDropdown.setOnClickListener(v -> unitDropdown.showDropDown());
+//        // Handle selection
+//        unitDropdown.setOnItemClickListener((parent, view, position, id) -> {
+//            String selectedUnit = parent.getItemAtPosition(position).toString();
+//            Toast.makeText(this, "Selected: " + selectedUnit, Toast.LENGTH_SHORT).show();
+//        });
     }
     private double convert(double value, String from, String to) {
 
-        // Convert to base (meter)
+        // Step 1: Convert FROM source unit TO meter (base unit)
         double meterValue;
 
         switch (from) {
-            case "Kilometer": meterValue = value * 1000; break;
-            case "Centimeter": meterValue = value / 100; break;
-            case "Millimeter": meterValue = value / 1000; break;
-            default: meterValue = value;
+            case "Kilometer":   meterValue = value * 1000; break;
+            case "Centimeter":  meterValue = value / 100; break;
+            case "Millimeter":  meterValue = value / 1000; break;
+            case "Micrometer":  meterValue = value / 1_000_000; break;
+            case "Nanometer":   meterValue = value / 1_000_000_000; break;
+            case "Mile":        meterValue = value * 1609.344; break;
+            case "Yard":        meterValue = value * 0.9144; break;
+            case "Foot":        meterValue = value * 0.3048; break;
+            case "Inch":        meterValue = value * 0.0254; break;
+            case "Light Year":  meterValue = value * 9.4607e15; break;
+            case "Meter":
+            default:
+                meterValue = value;
+                break;
         }
 
-        // Convert from meter to target
+        // Step 2: Convert FROM meter TO target unit
         switch (to) {
-            case "Kilometer": return meterValue / 1000;
-            case "Centimeter": return meterValue * 100;
-            case "Millimeter": return meterValue * 1000;
-            default: return meterValue;
+            case "Kilometer":   return meterValue / 1000;
+            case "Centimeter":  return meterValue * 100;
+            case "Millimeter":  return meterValue * 1000;
+            case "Micrometer":  return meterValue * 1_000_000;
+            case "Nanometer":   return meterValue * 1_000_000_000;
+            case "Mile":        return meterValue / 1609.344;
+            case "Yard":        return meterValue / 0.9144;
+            case "Foot":        return meterValue / 0.3048;
+            case "Inch":        return meterValue / 0.0254;
+            case "Light Year":  return meterValue / 9.4607e15;
+            case "Meter":
+            default:
+                return meterValue;
         }
     }
+
     private void calculate() {
 //        String input = etValue.getText().toString().trim();
 //        if (input.isEmpty()) {
