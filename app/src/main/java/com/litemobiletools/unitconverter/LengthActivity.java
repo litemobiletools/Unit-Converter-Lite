@@ -1,16 +1,13 @@
 package com.litemobiletools.unitconverter;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,17 +17,22 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-public class MainActivity extends AppCompatActivity {
+public class LengthActivity extends AppCompatActivity {
     AutoCompleteTextView unitDropdown, unitDropdown2;
     TextInputEditText etValue;
     TextView tvResult;
     ImageButton btnSwap;
+
+    TextView tvMeter, tvKm, tvCm, tvMm, tvMicro, tvNano,
+            tvMile, tvYard, tvFoot, tvInch, tvLy;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_length);
+
         unitDropdown = findViewById(R.id.unitDropdown);
         unitDropdown2 = findViewById(R.id.unitDropdown2);
         etValue = findViewById(R.id.etValue);
@@ -89,28 +91,19 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-//        AutoCompleteTextView unitDropdown = findViewById(R.id.unitDropdown);
-//        // Load array
-//        String[] units2 = getResources().getStringArray(R.array.length_units);
-//        // Adapter
-//        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(
-//                this,
-//                R.layout.dropdown_item,   // custom layout
-//                units
-//        );
-//        unitDropdown.setAdapter(adapter);
-//        // Show dropdown on click
-//        unitDropdown.setOnClickListener(v -> unitDropdown.showDropDown());
-//        // Handle selection
-//        unitDropdown.setOnItemClickListener((parent, view, position, id) -> {
-//            String selectedUnit = parent.getItemAtPosition(position).toString();
-//            Toast.makeText(this, "Selected: " + selectedUnit, Toast.LENGTH_SHORT).show();
-//        });
+        tvMeter = findViewById(R.id.tvMeterValue);
+        tvKm = findViewById(R.id.tvKmValue);
+        tvCm = findViewById(R.id.tvCmValue);
+        tvMm = findViewById(R.id.tvMmValue);
+        tvMicro = findViewById(R.id.tvMicroValue);
+        tvNano = findViewById(R.id.tvNanoValue);
+        tvMile = findViewById(R.id.tvMileValue);
+        tvYard = findViewById(R.id.tvYardValue);
+        tvFoot = findViewById(R.id.tvFootValue);
+        tvInch = findViewById(R.id.tvInchValue);
+        tvLy = findViewById(R.id.tvLyValue);
     }
+
     private double convert(double value, String from, String to) {
 
         // Step 1: Convert FROM source unit TO meter (base unit)
@@ -183,18 +176,36 @@ public class MainActivity extends AppCompatActivity {
         double result = convert(value, from, to);
 
         tvResult.setText(String.format("%.4f %s", result, to));
+
+        // Update all rows
+        updateAll(value, from);
     }
 
 
-    public void leanth(View view) {
-        startActivity(new Intent(this, LengthActivity.class));
+
+
+
+
+    private void updateAll(double value, String fromUnit) {
+
+        tvMeter.setText(format(convert(value, fromUnit, "Meter")));
+        tvKm.setText(format(convert(value, fromUnit, "Kilometer")));
+        tvCm.setText(format(convert(value, fromUnit, "Centimeter")));
+        tvMm.setText(format(convert(value, fromUnit, "Millimeter")));
+        tvMicro.setText(format(convert(value, fromUnit, "Micrometer")));
+        tvNano.setText(format(convert(value, fromUnit, "Nanometer")));
+        tvMile.setText(format(convert(value, fromUnit, "Mile")));
+        tvYard.setText(format(convert(value, fromUnit, "Yard")));
+        tvFoot.setText(format(convert(value, fromUnit, "Foot")));
+        tvInch.setText(format(convert(value, fromUnit, "Inch")));
+        tvLy.setText(format(convert(value, fromUnit, "Light Year")));
+    }
+    private String format(double value) {
+        if (value == 0) return "0";
+        if (Math.abs(value) < 0.0001 || Math.abs(value) > 1_000_000)
+            return String.format("%.6e", value);
+        return String.format("%.6f", value);
     }
 
-    public void weight(View view) {
-        startActivity(new Intent(this, WeightActivity.class));
-    }
 
-    public void temparature(View view) {
-        startActivity(new Intent(this, TemperatureActivity.class));
-    }
 }
