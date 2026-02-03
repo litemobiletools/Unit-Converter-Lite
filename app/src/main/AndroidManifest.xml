@@ -12,6 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UnitConverter">
         <activity
+            android:name=".VolumeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AreaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.UnitConverter" />
+        <activity
             android:name=".TemperatureActivity"
             android:exported="false" />
         <activity

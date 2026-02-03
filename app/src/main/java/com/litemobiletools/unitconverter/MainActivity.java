@@ -197,4 +197,7 @@ public class MainActivity extends AppCompatActivity {
     public void temparature(View view) {
         startActivity(new Intent(this, TemperatureActivity.class));
     }
+    public void area(View view) {
+        startActivity(new Intent(this, AreaActivity.class));
+    }
 }
