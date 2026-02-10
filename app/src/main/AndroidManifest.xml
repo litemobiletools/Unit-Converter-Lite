@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UnitConverter">
         <activity
+            android:name=".InfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".CurrencyActivity"
             android:exported="false" />
         <activity

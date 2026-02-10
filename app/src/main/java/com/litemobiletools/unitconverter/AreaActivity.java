@@ -1,12 +1,16 @@
 package com.litemobiletools.unitconverter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +18,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class AreaActivity extends AppCompatActivity {
@@ -24,11 +30,23 @@ public class AreaActivity extends AppCompatActivity {
 
     TextView tvMeter, tvKm, tvCm, tvMm, tvMicro, tvNano,
             tvMile, tvYard, tvFoot, tvInch, tvLy;
+    private MaterialToolbar toolbar; // Declare MaterialToolbar
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_area);
+        // Initialize Toolbar
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        // Handle navigation icon click (e.g., the back arrow)
+        toolbar.setNavigationOnClickListener(v -> {
+            //onBackPressed(); // Go back to the previous activity
+            // Or finish() to close the current activity:
+            finish();
+        });
+
+
         unitDropdown = findViewById(R.id.unitDropdown);
         unitDropdown2 = findViewById(R.id.unitDropdown2);
         etValue = findViewById(R.id.etValue);
@@ -96,7 +114,61 @@ public class AreaActivity extends AppCompatActivity {
         tvFoot = findViewById(R.id.tvFootValue);
         tvInch = findViewById(R.id.tvInchValue);
         tvLy = findViewById(R.id.tvLyValue);
+
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.nav_home) {
+                // Already on home, do nothing or refresh
+                finish();
+                return true;
+            } else if (itemId == R.id.nav_convert) {
+                // Start the conversion activity (e.g., LengthActivity or a generic conversion screen)
+                String temp = unitDropdown.getText().toString();
+                unitDropdown.setText(unitDropdown2.getText().toString(), false);
+                unitDropdown2.setText(temp, false);
+                calculate();
+
+                return true;
+            } else if (itemId == R.id.nav_favorite) {
+                // Start Favorites Activity
+                // startActivity(new Intent(MainActivity.this, FavoritesActivity.class));
+                Toast.makeText(AreaActivity.this, "Favorites clicked", Toast.LENGTH_SHORT).show(); // Placeholder
+                return true;
+            }
+//            else if (itemId == R.id.nav_settings) {
+//                // Start Settings Activity
+//                // startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+//                Toast.makeText(AreaActivity.this, "Settings clicked", Toast.LENGTH_SHORT).show(); // Placeholder
+//                return true;
+//            }
+            return false;
+        });
     }
+    // --- Top Menu Methods ---
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.top_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_share) {
+            Toast.makeText(this, "Share clicked!", Toast.LENGTH_SHORT).show();
+            // Implement your share logic here
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            String shareBody = "Check out this amazing Unit Converter app!"; // You can customize the message
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+            startActivity(Intent.createChooser(shareIntent, "Share via"));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    // --- End Top Menu Methods ---
 
     private double convert(double value, String from, String to) {
 
