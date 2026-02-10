@@ -184,20 +184,28 @@ public class MainActivity extends AppCompatActivity {
 
         tvResult.setText(String.format("%.4f %s", result, to));
     }
-
-
     public void leanth(View view) {
         startActivity(new Intent(this, LengthActivity.class));
     }
-
     public void weight(View view) {
         startActivity(new Intent(this, WeightActivity.class));
     }
-
     public void temparature(View view) {
         startActivity(new Intent(this, TemperatureActivity.class));
     }
     public void area(View view) {
         startActivity(new Intent(this, AreaActivity.class));
+    }
+    public void volume(View view) {
+        startActivity(new Intent(this, VolumeActivity.class));
+    }
+    public void time(View view) {
+        startActivity(new Intent(this, TimeActivity.class));
+    }
+    public void speed(View view) {
+        startActivity(new Intent(this, SpeedActivity.class));
+    }
+    public void currency(View view) {
+        startActivity(new Intent(this, CurrencyActivity.class));
     }
 }

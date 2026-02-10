@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UnitConverter">
         <activity
+            android:name=".CurrencyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SpeedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TimeActivity"
+            android:exported="false" />
+        <activity
             android:name=".VolumeActivity"
             android:exported="false" />
         <activity

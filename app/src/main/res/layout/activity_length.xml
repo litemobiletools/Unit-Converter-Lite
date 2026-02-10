@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="#3F6FEA"
-            app:title="Unit Converter"
+            app:title="Length Converter"
             app:navigationIcon="@drawable/ic_menu"
             app:titleTextColor="?attr/colorSurface"
             app:navigationIconTint="?attr/colorSurface"
@@ -80,7 +80,7 @@
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:hint="Select Len."
+                            android:hint="From"
                             android:layout_margin="2dp"
                             app:boxBackgroundMode="outline"
                             app:boxCornerRadiusTopStart="6dp"
@@ -96,7 +96,7 @@
                             <AutoCompleteTextView
                                 android:id="@+id/unitDropdown"
                                 android:layout_width="match_parent"
-                                android:layout_height="30dp"
+                                android:layout_height="wrap_content"
                                 android:inputType="none"
                                 android:focusable="false"
                                 android:clickable="true"
@@ -116,7 +116,7 @@
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:hint="Select Len."
+                            android:hint="To"
                             android:layout_margin="2dp"
                             app:boxBackgroundMode="outline"
                             app:boxCornerRadiusTopStart="6dp"
@@ -131,7 +131,7 @@
                             <AutoCompleteTextView
                                 android:id="@+id/unitDropdown2"
                                 android:layout_width="match_parent"
-                                android:layout_height="30dp"
+                                android:layout_height="wrap_content"
                                 android:inputType="none"
                                 android:focusable="false"
                                 android:clickable="true"
@@ -165,11 +165,12 @@
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/etValue"
                                 android:layout_width="match_parent"
-                                android:layout_height="30dp"
+                                android:layout_height="wrap_content"
                                 android:inputType="numberDecimal"
                                 android:gravity="center"
                                 android:textAlignment="center"
-                                android:padding="0dp"/>
+                                android:padding="0dp"
+                                android:minHeight="30dp"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -177,7 +178,7 @@
                         <TextView
                             android:id="@+id/tvResult"
                             android:layout_width="0dp"
-                            android:layout_height="30dp"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginTop="2dp"
                             android:layout_marginStart="8dp"
@@ -187,7 +188,8 @@
                             android:textColor="@android:color/white"
                             android:textStyle="bold"
                             android:gravity="center"
-                            android:textAlignment="center"/>
+                            android:textAlignment="center"
+                            android:minHeight="30dp"/>
 
                     </LinearLayout>
 

@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+    <!-- APP BAR -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#3F6FEA"
+            app:title="Currency Converter"
+            app:navigationIcon="@drawable/ic_menu"
+            app:titleTextColor="?attr/colorSurface"
+            app:navigationIconTint="?attr/colorSurface"
+            app:menu="@menu/top_menu"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@drawable/bg"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:paddingBottom="72dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Quick Conversion Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:padding="18dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:text="Quick Conversion"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnSurface"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:hint="From"
+                            android:layout_margin="2dp"
+                            app:boxBackgroundMode="outline"
+                            app:boxCornerRadiusTopStart="6dp"
+                            app:boxCornerRadiusTopEnd="6dp"
+                            app:boxCornerRadiusBottomStart="6dp"
+                            app:boxCornerRadiusBottomEnd="6dp"
+                            android:layout_weight="1"
+                            app:boxStrokeWidth="1dp"
+                            android:minHeight="30dp"
+                            app:hintEnabled="true">
+                            <AutoCompleteTextView
+                                android:id="@+id/unitDropdown"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="none"
+                                android:focusable="false"
+                                android:clickable="true"
+                                android:gravity="center"
+                                android:textAlignment="center"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <ImageButton
+                            android:id="@+id/btnSwap"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_circle"
+                            android:src="@drawable/ic_swap"
+                            app:tint="@android:color/white" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:hint="To"
+                            android:layout_margin="2dp"
+                            app:boxBackgroundMode="outline"
+                            app:boxCornerRadiusTopStart="6dp"
+                            app:boxCornerRadiusTopEnd="6dp"
+                            app:boxCornerRadiusBottomStart="6dp"
+                            app:boxCornerRadiusBottomEnd="6dp"
+                            android:layout_weight="1"
+                            app:boxStrokeWidth="1dp"
+                            android:minHeight="30dp"
+                            app:hintEnabled="true">
+                            <AutoCompleteTextView
+                                android:id="@+id/unitDropdown2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="none"
+                                android:focusable="false"
+                                android:clickable="true"
+                                android:gravity="center"
+                                android:textAlignment="center"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="Enter Amount"
+                            app:boxBackgroundMode="outline"
+                            app:boxCornerRadiusTopStart="6dp"
+                            app:boxCornerRadiusTopEnd="6dp"
+                            app:boxCornerRadiusBottomStart="6dp"
+                            app:boxCornerRadiusBottomEnd="6dp"
+                            app:boxStrokeWidth="1dp"
+                            android:minHeight="30dp"
+                            app:hintEnabled="true">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etValue"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="numberDecimal"
+                                android:gravity="center"
+                                android:textAlignment="center"
+                                android:padding="0dp"
+                                android:minHeight="30dp"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <TextView
+                            android:id="@+id/tvResult"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_result_outline"
+                            android:padding="0dp"
+                            android:text="0.00"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:minHeight="30dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Categories Grid -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:padding="12dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView android:text="Major Global Currencies" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="USD - US Dollar"/>
+                            <TextView android:id="@+id/tvUsdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.00" />
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="EUR - Euro"/>
+                            <TextView android:id="@+id/tvEurValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.92"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="GBP - British Pound"/>
+                            <TextView android:id="@+id/tvGbpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.79"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="JPY - Japanese Yen"/>
+                            <TextView android:id="@+id/tvJpyValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="150.12"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="AUD - Australian Dollar"/>
+                            <TextView android:id="@+id/tvAudValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.53"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="CAD - Canadian Dollar"/>
+                            <TextView android:id="@+id/tvCadValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.35"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="CHF - Swiss Franc"/>
+                            <TextView android:id="@+id/tvChfValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.88"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="CNY - Chinese Yuan"/>
+                            <TextView android:id="@+id/tvCnyValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="7.19"/>
+                        </LinearLayout>
+
+                        <TextView android:text="Asia &amp; Pacific" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="INR - Indian Rupee"/>
+                            <TextView android:id="@+id/tvInrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SGD - Singapore Dollar"/>
+                            <TextView android:id="@+id/tvSgdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="HKD - Hong Kong Dollar"/>
+                            <TextView android:id="@+id/tvHkdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="KRW - South Korean Won"/>
+                            <TextView android:id="@+id/tvKrwValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="THB - Thai Baht"/>
+                            <TextView android:id="@+id/tvThbValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MYR - Malaysian Ringgit"/>
+                            <TextView android:id="@+id/tvMyrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="IDR - Indonesian Rupiah"/>
+                            <TextView android:id="@+id/tvIdrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PHP - Philippine Peso"/>
+                            <TextView android:id="@+id/tvPhpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+
+                        <TextView android:text="Europe &amp; Middle East" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SEK - Swedish Krona"/>
+                            <TextView android:id="@+id/tvSekValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="NOK - Norwegian Krone"/>
+                            <TextView android:id="@+id/tvNokValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TRY - Turkish Lira"/>
+                            <TextView android:id="@+id/tvTryValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="RUB - Russian Ruble"/>
+                            <TextView android:id="@+id/tvRubValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="AED - UAE Dirham"/>
+                            <TextView android:id="@+id/tvAedValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SAR - Saudi Riyal"/>
+                            <TextView android:id="@+id/tvSarValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ILS - Israeli Shekel"/>
+                            <TextView android:id="@+id/tvIlsValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="KWD - Kuwaiti Dinar"/>
+                            <TextView android:id="@+id/tvKwdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+
+                        <TextView android:text="Americas &amp; Africa" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MXN - Mexican Peso"/>
+                            <TextView android:id="@+id/tvMxnValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BRL - Brazilian Real"/>
+                            <TextView android:id="@+id/tvBrlValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ZAR - S. African Rand"/>
+                            <TextView android:id="@+id/tvZarValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="EGP - Egyptian Pound"/>
+                            <TextView android:id="@+id/tvEgpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="NZD - NZ Dollar"/>
+                            <TextView android:id="@+id/tvNzdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PKR - Pakistani Rupee"/>
+                            <TextView android:id="@+id/tvPkrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BDT - Bangladesh Taka"/>
+                            <TextView android:id="@+id/tvBdtValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="VND - Vietnam Dong"/>
+                            <TextView android:id="@+id/tvVndValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                        </LinearLayout>
+
+
+
+<!--                        <TextView android:text="Asia &amp; Pacific" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>-->
+
+<!--                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>-->
+
+<!--                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">-->
+<!--                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PHP - Philippine Peso"/>-->
+<!--                            <TextView android:id="@+id/tvPhpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>-->
+<!--                        </LinearLayout>-->
+
+
+
+
+<!--                        <TextView android:text="Europe &amp; Middle East" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>-->
+
+<!--                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>-->
+
+<!--                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">-->
+<!--                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="KWD - Kuwaiti Dinar"/>-->
+<!--                            <TextView android:id="@+id/tvKwdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>-->
+<!--                        </LinearLayout>-->
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_marginTop="16dp"
+                android:text="Recent Conversions"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:padding="12dp">
+                <LinearLayout
+                    android:padding="18dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="1 USD → 0.92 EUR"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="6dp"
+                        android:background="?attr/colorOutline"/>
+                    <TextView
+                        android:text="1 GBP → 1.27 USD"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+        android:background="#3F6FEA"
+        app:itemIconTint="?attr/colorSurface"
+        app:itemTextColor="?attr/colorSurface"
+        app:itemIconSize="35dp"
+        app:menu="@menu/bottom_menu"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

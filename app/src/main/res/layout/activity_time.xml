@@ -9,26 +9,18 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <!-- App Bar -->
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="#3F6FEA"
-            app:title="Temperature Converter"
+            app:title="Time Converter"
             app:navigationIcon="@drawable/ic_menu"
             app:titleTextColor="?attr/colorSurface"
             app:navigationIconTint="?attr/colorSurface"
             app:menu="@menu/top_menu"/>
-
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!--    <FrameLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent">-->
-    <!-- Content -->
-    <!-- SCROLLABLE CONTENT -->
-    <!-- SCROLLABLE CONTENT -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -36,12 +28,6 @@
         android:background="@drawable/bg"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:paddingBottom="72dp">
-        <!--    <ScrollView-->
-        <!--        android:background="@drawable/bg"-->
-        <!--        android:layout_width="match_parent"-->
-        <!--        android:layout_height="match_parent"-->
-        <!--        android:layout_marginTop="?attr/actionBarSize"-->
-        <!--        android:fillViewport="true">-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -87,12 +73,10 @@
                             app:boxCornerRadiusTopEnd="6dp"
                             app:boxCornerRadiusBottomStart="6dp"
                             app:boxCornerRadiusBottomEnd="6dp"
-                            android:textAlignment="center"
                             android:layout_weight="1"
                             app:boxStrokeWidth="1dp"
                             android:minHeight="30dp"
                             app:hintEnabled="true">
-
                             <AutoCompleteTextView
                                 android:id="@+id/unitDropdown"
                                 android:layout_width="match_parent"
@@ -103,7 +87,6 @@
                                 android:gravity="center"
                                 android:textAlignment="center"/>
                         </com.google.android.material.textfield.TextInputLayout>
-
 
                         <ImageButton
                             android:id="@+id/btnSwap"
@@ -127,7 +110,6 @@
                             app:boxStrokeWidth="1dp"
                             android:minHeight="30dp"
                             app:hintEnabled="true">
-
                             <AutoCompleteTextView
                                 android:id="@+id/unitDropdown2"
                                 android:layout_width="match_parent"
@@ -146,8 +128,6 @@
                         android:layout_marginTop="12dp"
                         android:orientation="horizontal"
                         android:gravity="center_vertical">
-
-                        <!-- EditText -->
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -161,7 +141,6 @@
                             app:boxStrokeWidth="1dp"
                             android:minHeight="30dp"
                             app:hintEnabled="true">
-
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/etValue"
                                 android:layout_width="match_parent"
@@ -171,10 +150,7 @@
                                 android:textAlignment="center"
                                 android:padding="0dp"
                                 android:minHeight="30dp"/>
-
                         </com.google.android.material.textfield.TextInputLayout>
-
-                        <!-- Result TextView -->
                         <TextView
                             android:id="@+id/tvResult"
                             android:layout_width="0dp"
@@ -184,16 +160,13 @@
                             android:layout_marginStart="8dp"
                             android:background="@drawable/bg_result_outline"
                             android:padding="0dp"
-                            android:text="0 kel"
+                            android:text="0.0000"
                             android:textColor="@android:color/white"
                             android:textStyle="bold"
                             android:gravity="center"
                             android:textAlignment="center"
                             android:minHeight="30dp"/>
-
                     </LinearLayout>
-
-
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -203,8 +176,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:orientation="vertical">
-
-
                 <com.google.android.material.card.MaterialCardView
                     android:layout_marginTop="8dp"
                     android:layout_width="match_parent"
@@ -212,126 +183,316 @@
                     app:cardCornerRadius="16dp"
                     app:cardElevation="4dp"
                     android:padding="12dp">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:padding="18dp">
-
-                        <!-- ITEM -->
+                        
+                        <!-- Picosecond -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingBottom="5dp"
                             android:orientation="horizontal"
                             android:gravity="center_vertical">
-
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Celsius"
+                                android:text="Picosecond"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
-
                             <TextView
-                                android:id="@+id/tvMeterValue"
-                                android:text="1"
+                                android:id="@+id/tvPicosecondValue"
+                                android:text="0"
                                 android:textStyle="bold"
                                 android:textSize="15sp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
-
-                            <TextView
-                                android:text=" c"
-                                android:textSize="13sp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
                         </LinearLayout>
-
-                        <!-- DIVIDER -->
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_marginVertical="6dp"
                             android:background="?attr/colorOutline"/>
 
-                        <!-- COPY & CHANGE TEXT ONLY -->
+                        <!-- Nanosecond -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingBottom="5dp"
                             android:orientation="horizontal"
                             android:gravity="center_vertical">
-
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Kelvin"
+                                android:text="Nanosecond"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
-
                             <TextView
-                                android:id="@+id/tvKmValue"
-                                android:text="0.1"
+                                android:id="@+id/tvNanosecondValue"
+                                android:text="0"
                                 android:textStyle="bold"
                                 android:textSize="15sp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
-
-                            <TextView
-                                android:text=" k"
-                                android:textSize="13sp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
                         </LinearLayout>
-
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_marginVertical="6dp"
                             android:background="?attr/colorOutline"/>
 
+                        <!-- Microsecond -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingBottom="5dp"
                             android:orientation="horizontal"
                             android:gravity="center_vertical">
-
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Fahrenheit"
+                                android:text="Microsecond"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
-
                             <TextView
-                                android:id="@+id/tvCmValue"
-                                android:text="0.1"
+                                android:id="@+id/tvMicrosecondValue"
+                                android:text="0"
                                 android:textStyle="bold"
                                 android:textSize="15sp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="6dp"
+                            android:background="?attr/colorOutline"/>
 
+                        <!-- Millisecond -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
                             <TextView
-                                android:text=" f"
-                                android:textSize="13sp"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Millisecond"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/tvMillisecondValue"
+                                android:text="0"
+                                android:textStyle="bold"
+                                android:textSize="15sp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
                         </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="6dp"
+                            android:background="?attr/colorOutline"/>
 
-                        <!-- Repeat same block for Centimeter, Millimeter, etc. -->
+                        <!-- Second -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Second"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/tvSecondValue"
+                                android:text="0"
+                                android:textStyle="bold"
+                                android:textSize="15sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="6dp"
+                            android:background="?attr/colorOutline"/>
+
+                        <!-- Minute -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Minute"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/tvMinuteValue"
+                                android:text="0"
+                                android:textStyle="bold"
+                                android:textSize="15sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="6dp"
+                            android:background="?attr/colorOutline"/>
+
+                        <!-- Hour -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Hour"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/tvHourValue"
+                                android:text="0"
+                                android:textStyle="bold"
+                                android:textSize="15sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="6dp"
+                            android:background="?attr/colorOutline"/>
+
+                        <!-- Day -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Day"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/tvDayValue"
+                                android:text="0"
+                                android:textStyle="bold"
+                                android:textSize="15sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="6dp"
+                            android:background="?attr/colorOutline"/>
+
+                        <!-- Week -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Week"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/tvWeekValue"
+                                android:text="0"
+                                android:textStyle="bold"
+                                android:textSize="15sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="6dp"
+                            android:background="?attr/colorOutline"/>
+
+                        <!-- Month -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Month"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/tvMonthValue"
+                                android:text="0"
+                                android:textStyle="bold"
+                                android:textSize="15sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="6dp"
+                            android:background="?attr/colorOutline"/>
+
+                        <!-- Year -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Year"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/tvYearValue"
+                                android:text="0"
+                                android:textStyle="bold"
+                                android:textSize="15sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
                     </LinearLayout>
-
                 </com.google.android.material.card.MaterialCardView>
-
-
-
-
             </LinearLayout>
 
             <TextView
@@ -342,7 +503,6 @@
                 android:textSize="16sp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
-            <!-- Recent Conversions -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
@@ -350,15 +510,13 @@
                 app:cardCornerRadius="16dp"
                 app:cardElevation="4dp"
                 android:padding="12dp">
-
                 <LinearLayout
                     android:padding="18dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
                     <TextView
-                        android:text="10 Meter → 0.01 Kilometer"
+                        android:text="1 Hour → 3600 Second"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"/>
                     <View
@@ -367,17 +525,14 @@
                         android:layout_marginVertical="6dp"
                         android:background="?attr/colorOutline"/>
                     <TextView
-                        android:text="32 °C → 89.6 °F"
+                        android:text="1 Day → 1440 Minute"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
-
         </LinearLayout>
-        <!--    </ScrollView>-->
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
@@ -389,7 +544,4 @@
         app:itemTextColor="?attr/colorSurface"
         app:itemIconSize="35dp"
         app:menu="@menu/bottom_menu"/>
-    <!--    </FrameLayout>-->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-<!--end today-->
