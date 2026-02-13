@@ -1,14 +1,18 @@
 package com.litemobiletools.unitconverter;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +26,10 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class AreaActivity extends AppCompatActivity {
     AutoCompleteTextView unitDropdown, unitDropdown2;
     TextInputEditText etValue;
@@ -31,6 +39,12 @@ public class AreaActivity extends AppCompatActivity {
     TextView tvMeter, tvKm, tvCm, tvMm, tvMicro, tvNano,
             tvMile, tvYard, tvFoot, tvInch, tvLy;
     private MaterialToolbar toolbar; // Declare MaterialToolbar
+
+    LinearLayout recentConversionsContainer;
+    List<String> recentConversions = new ArrayList<>();
+    private static final String PREFS_NAME = "UnitConverterPrefs";
+    private static final String RECENT_CONVERSIONS_KEY = "recentConversions";
+    private static final int MAX_RECENT_CONVERSIONS = 10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +66,7 @@ public class AreaActivity extends AppCompatActivity {
         etValue = findViewById(R.id.etValue);
         tvResult = findViewById(R.id.tvResult);
         btnSwap = findViewById(R.id.btnSwap);
+        recentConversionsContainer = findViewById(R.id.recent_conversions_container);
         String[] units = {
                 "Square Meter",
                 "Square Kilometer",
@@ -115,7 +130,6 @@ public class AreaActivity extends AppCompatActivity {
         tvInch = findViewById(R.id.tvInchValue);
         tvLy = findViewById(R.id.tvLyValue);
 
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
@@ -133,18 +147,13 @@ public class AreaActivity extends AppCompatActivity {
                 return true;
             } else if (itemId == R.id.nav_favorite) {
                 // Start Favorites Activity
-                // startActivity(new Intent(MainActivity.this, FavoritesActivity.class));
-                Toast.makeText(AreaActivity.this, "Favorites clicked", Toast.LENGTH_SHORT).show(); // Placeholder
+                startActivity(new Intent(this, InfoActivity.class));
                 return true;
             }
-//            else if (itemId == R.id.nav_settings) {
-//                // Start Settings Activity
-//                // startActivity(new Intent(MainActivity.this, SettingsActivity.class));
-//                Toast.makeText(AreaActivity.this, "Settings clicked", Toast.LENGTH_SHORT).show(); // Placeholder
-//                return true;
-//            }
             return false;
         });
+
+        loadRecentConversions();
     }
     // --- Top Menu Methods ---
     @Override
@@ -161,7 +170,7 @@ public class AreaActivity extends AppCompatActivity {
             // Implement your share logic here
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
-            String shareBody = "Check out this amazing Unit Converter app!"; // You can customize the message
+            String shareBody = "Check out this amazing Area Converter app: https://play.google.com/store/apps/details?id=" + getPackageName(); // Replace with your actual Play Store link
             shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
             startActivity(Intent.createChooser(shareIntent, "Share via"));
             return true;
@@ -226,11 +235,16 @@ public class AreaActivity extends AppCompatActivity {
 
         double value = Double.parseDouble(input);
         double result = convert(value, from, to);
+        String conversionString = String.format("%.4f %s → %.4f %s", value, from, result, to);
 
         tvResult.setText(String.format("%.4f %s", result, to));
 
         // Update all rows
         updateAll(value, from);
+        //sharedpreface
+        addRecentConversion(conversionString);
+        saveRecentConversions();
+        displayRecentConversions();
     }
     private void updateAll(double value, String fromUnit) {
         tvMeter.setText(format(convert(value, fromUnit, "Square Meter")));
@@ -250,5 +264,62 @@ public class AreaActivity extends AppCompatActivity {
         if (Math.abs(value) < 0.0001 || Math.abs(value) > 1_000_000)
             return String.format("%.6e", value);
         return String.format("%.6f", value);
+    }
+    // sharedprefacen
+    private void addRecentConversion(String conversion) {
+        // Add to the beginning of the list
+        recentConversions.add(0, conversion);
+        // Keep only the latest MAX_RECENT_CONVERSIONS
+        while (recentConversions.size() > MAX_RECENT_CONVERSIONS) {
+            recentConversions.remove(recentConversions.size() - 1);
+        }
+    }
+
+    private void saveRecentConversions() {
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        // Convert the list to a comma-separated string
+        String conversionsString = TextUtils.join("||", recentConversions);
+        editor.putString(RECENT_CONVERSIONS_KEY, conversionsString);
+        editor.apply();
+    }
+
+    private void loadRecentConversions() {
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        String conversionsString = prefs.getString(RECENT_CONVERSIONS_KEY, "");
+        if (!conversionsString.isEmpty()) {
+            recentConversions = new ArrayList<>(Arrays.asList(conversionsString.split("\\|\\|")));
+        } else {
+            recentConversions = new ArrayList<>();
+        }
+        displayRecentConversions();
+    }
+
+    private void displayRecentConversions() {
+        recentConversionsContainer.removeAllViews(); // Clear existing views
+        if (recentConversions.isEmpty()) {
+            TextView noConversions = new TextView(this);
+            noConversions.setText("No recent conversions.");
+            noConversions.setTextAppearance(androidx.appcompat.R.style.TextAppearance_AppCompat_Small);
+            recentConversionsContainer.addView(noConversions);
+        } else {
+            for (int i = 0; i < recentConversions.size(); i++) {
+                String conversion = recentConversions.get(i);
+                TextView tv = new TextView(this);
+                tv.setText(conversion);
+                tv.setTextAppearance(androidx.appcompat.R.style.TextAppearance_AppCompat_Small);
+                tv.setPadding(0, 8, 0, 8);
+                recentConversionsContainer.addView(tv);
+
+                if (i < recentConversions.size() - 1) {
+                    View divider = new View(this);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1);
+                    layoutParams.setMargins(0, 6, 0, 6);
+                    divider.setLayoutParams(layoutParams);
+                    divider.setBackgroundColor(getColor(R.color.colorOnSurface)); // Assuming you have this color or define it
+                    recentConversionsContainer.addView(divider);
+                }
+            }
+        }
     }
 }

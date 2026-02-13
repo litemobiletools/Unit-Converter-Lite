@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String PREFS_NAME = "UnitConverterPrefs";
     private static final String RECENT_CONVERSIONS_KEY = "recentConversions";
     private static final int MAX_RECENT_CONVERSIONS = 10;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
         unitDropdown.setShowSoftInputOnFocus(false);
         unitDropdown2.setShowSoftInputOnFocus(false);
 
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
@@ -128,12 +128,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, InfoActivity.class));
                 return true;
             }
-//            else if (itemId == R.id.nav_settings) {
-//                // Start Settings Activity
-//                // startActivity(new Intent(MainActivity.this, SettingsActivity.class));
-//                Toast.makeText(MainActivity.this, "Settings clicked", Toast.LENGTH_SHORT).show(); // Placeholder
-//                return true;
-//            }
+
             return false;
         });
         loadRecentConversions();
@@ -203,20 +198,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void calculate() {
-//        String input = etValue.getText().toString().trim();
-//        if (input.isEmpty()) {
-//            tvResult.setText("0");
-//            return;
-//        }
-//
-//        double value = Double.parseDouble(input);
-//        String from = unitDropdown.getText().toString();
-//        String to = unitDropdown2.getText().toString();
-//
-//        double result = convert(value, from, to);
-//
-//        tvResult.setText(String.format("%.4f %s", result, to));
-
         if (etValue.getText() == null) return;
 
         String input = etValue.getText().toString().trim();
@@ -319,5 +300,11 @@ public class MainActivity extends AppCompatActivity {
     }
     public void currency(View view) {
         startActivity(new Intent(this, CurrencyActivity.class));
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // This refreshes the list every time you return to this screen
+        loadRecentConversions();
     }
 }

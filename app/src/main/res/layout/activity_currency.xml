@@ -176,6 +176,33 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/txtUpdated"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Exchange rates for February 13, 2026"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"/>
+
+                    <ImageButton
+                        android:id="@+id/updateIDmanual"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_refresh"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Update Rates"/>
+                </LinearLayout>
+
+
                 <com.google.android.material.card.MaterialCardView
                     android:layout_marginTop="8dp"
                     android:layout_width="match_parent"
@@ -183,233 +210,1246 @@
                     app:cardCornerRadius="16dp"
                     app:cardElevation="4dp"
                     android:padding="12dp">
+                <!--
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView android:text="Major Global Currencies" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="USD - US Dollar"/>
+                        <TextView android:id="@+id/tvUsdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.00" />
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="EUR - Euro"/>
+                        <TextView android:id="@+id/tvEurValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.92"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="GBP - British Pound"/>
+                        <TextView android:id="@+id/tvGbpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.79"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="JPY - Japanese Yen"/>
+                        <TextView android:id="@+id/tvJpyValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="150.12"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="AUD - Australian Dollar"/>
+                        <TextView android:id="@+id/tvAudValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.53"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="CAD - Canadian Dollar"/>
+                        <TextView android:id="@+id/tvCadValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.35"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="CHF - Swiss Franc"/>
+                        <TextView android:id="@+id/tvChfValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.88"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="CNY - Chinese Yuan"/>
+                        <TextView android:id="@+id/tvCnyValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="7.19"/>
+                    </LinearLayout>
+
+                    <TextView android:text="Asia &amp; Pacific" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="INR - Indian Rupee"/>
+                        <TextView android:id="@+id/tvInrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SGD - Singapore Dollar"/>
+                        <TextView android:id="@+id/tvSgdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="HKD - Hong Kong Dollar"/>
+                        <TextView android:id="@+id/tvHkdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="KRW - South Korean Won"/>
+                        <TextView android:id="@+id/tvKrwValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="THB - Thai Baht"/>
+                        <TextView android:id="@+id/tvThbValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MYR - Malaysian Ringgit"/>
+                        <TextView android:id="@+id/tvMyrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="IDR - Indonesian Rupiah"/>
+                        <TextView android:id="@+id/tvIdrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PHP - Philippine Peso"/>
+                        <TextView android:id="@+id/tvPhpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+
+                    <TextView android:text="Europe &amp; Middle East" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SEK - Swedish Krona"/>
+                        <TextView android:id="@+id/tvSekValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="NOK - Norwegian Krone"/>
+                        <TextView android:id="@+id/tvNokValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TRY - Turkish Lira"/>
+                        <TextView android:id="@+id/tvTryValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="RUB - Russian Ruble"/>
+                        <TextView android:id="@+id/tvRubValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="AED - UAE Dirham"/>
+                        <TextView android:id="@+id/tvAedValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SAR - Saudi Riyal"/>
+                        <TextView android:id="@+id/tvSarValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ILS - Israeli Shekel"/>
+                        <TextView android:id="@+id/tvIlsValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="KWD - Kuwaiti Dinar"/>
+                        <TextView android:id="@+id/tvKwdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+
+                    <TextView android:text="Americas &amp; Africa" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MXN - Mexican Peso"/>
+                        <TextView android:id="@+id/tvMxnValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BRL - Brazilian Real"/>
+                        <TextView android:id="@+id/tvBrlValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ZAR - S. African Rand"/>
+                        <TextView android:id="@+id/tvZarValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="EGP - Egyptian Pound"/>
+                        <TextView android:id="@+id/tvEgpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="NZD - NZ Dollar"/>
+                        <TextView android:id="@+id/tvNzdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PKR - Pakistani Rupee"/>
+                        <TextView android:id="@+id/tvPkrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BDT - Bangladesh Taka"/>
+                        <TextView android:id="@+id/tvBdtValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="VND - Vietnam Dong"/>
+                        <TextView android:id="@+id/tvVndValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                    </LinearLayout>
+                    </LinearLayout>
+                    -->
+
+
+
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:padding="18dp">
 
-                        <TextView android:text="Major Global Currencies" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8dp"/>
+                        <!-- Major Global Currencies -->
+                        <TextView
+                            android:text="Major Global Currencies"
+                            android:textStyle="bold"
+                            android:textColor="#2E7D32"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="USD - US Dollar"/>
-                            <TextView android:id="@+id/tvUsdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.00" />
+                            <TextView android:id="@+id/tvUsdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.0"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="EUR - Euro"/>
-                            <TextView android:id="@+id/tvEurValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.92"/>
+                            <TextView android:id="@+id/tvEurValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.8423"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="GBP - British Pound"/>
-                            <TextView android:id="@+id/tvGbpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.79"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="GBP - British Pound Sterling"/>
+                            <TextView android:id="@+id/tvGbpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.7339"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="JPY - Japanese Yen"/>
-                            <TextView android:id="@+id/tvJpyValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="150.12"/>
+                            <TextView android:id="@+id/tvJpyValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="152.9512"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="AUD - Australian Dollar"/>
-                            <TextView android:id="@+id/tvAudValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.53"/>
+                            <TextView android:id="@+id/tvAudValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.4084"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="CAD - Canadian Dollar"/>
-                            <TextView android:id="@+id/tvCadValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.35"/>
+                            <TextView android:id="@+id/tvCadValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.3598"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="CHF - Swiss Franc"/>
-                            <TextView android:id="@+id/tvChfValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.88"/>
+                            <TextView android:id="@+id/tvChfValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.7695"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <!-- Asia & Pacific -->
+                        <TextView android:text="Asia and Pacific" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="CNY - Chinese Yuan"/>
-                            <TextView android:id="@+id/tvCnyValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="7.19"/>
-                        </LinearLayout>
-
-                        <TextView android:text="Asia &amp; Pacific" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>
-
-                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="INR - Indian Rupee"/>
-                            <TextView android:id="@+id/tvInrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
-                        </LinearLayout>
-                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
-
-                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SGD - Singapore Dollar"/>
-                            <TextView android:id="@+id/tvSgdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                            <TextView android:id="@+id/tvCnyValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6.9096"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="HKD - Hong Kong Dollar"/>
-                            <TextView android:id="@+id/tvHkdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                            <TextView android:id="@+id/tvHkdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="7.8165"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="KRW - South Korean Won"/>
-                            <TextView android:id="@+id/tvKrwValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
-                        </LinearLayout>
-                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
-
-                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="THB - Thai Baht"/>
-                            <TextView android:id="@+id/tvThbValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
-                        </LinearLayout>
-                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
-
-                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MYR - Malaysian Ringgit"/>
-                            <TextView android:id="@+id/tvMyrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="INR - Indian Rupee"/>
+                            <TextView android:id="@+id/tvInrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="90.6206"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="IDR - Indonesian Rupiah"/>
-                            <TextView android:id="@+id/tvIdrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                            <TextView android:id="@+id/tvIdrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="16814.482"/>
                         </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="KRW - South Korean Won"/>
+                            <TextView android:id="@+id/tvKrwValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1439.0452"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MYR - Malaysian Ringgit"/>
+                            <TextView android:id="@+id/tvMyrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3.9029"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="NZD - New Zealand Dollar"/>
+                            <TextView android:id="@+id/tvNzdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.6556"/>
+                        </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PHP - Philippine Peso"/>
-                            <TextView android:id="@+id/tvPhpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
-                        </LinearLayout>
-
-                        <TextView android:text="Europe &amp; Middle East" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>
-
-                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SEK - Swedish Krona"/>
-                            <TextView android:id="@+id/tvSekValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                            <TextView android:id="@+id/tvPhpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="58.0665"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="NOK - Norwegian Krone"/>
-                            <TextView android:id="@+id/tvNokValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SGD - Singapore Dollar"/>
+                            <TextView android:id="@+id/tvSgdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.2621"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TRY - Turkish Lira"/>
-                            <TextView android:id="@+id/tvTryValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="THB - Thai Baht"/>
+                            <TextView android:id="@+id/tvThbValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="31.0331"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="RUB - Russian Ruble"/>
-                            <TextView android:id="@+id/tvRubValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="VND - Vietnamese Dong"/>
+                            <TextView android:id="@+id/tvVndValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="25909.333"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <!-- Europe & Middle East -->
+                        <TextView android:text="Europe and Middle East" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="AED - UAE Dirham"/>
-                            <TextView android:id="@+id/tvAedValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                            <TextView android:id="@+id/tvAedValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3.6725"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SAR - Saudi Riyal"/>
-                            <TextView android:id="@+id/tvSarValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
-                        </LinearLayout>
-                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
-
-                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ILS - Israeli Shekel"/>
-                            <TextView android:id="@+id/tvIlsValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ILS - Israeli New Shekel"/>
+                            <TextView android:id="@+id/tvIlsValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3.0726"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="KWD - Kuwaiti Dinar"/>
-                            <TextView android:id="@+id/tvKwdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
-                        </LinearLayout>
-
-                        <TextView android:text="Americas &amp; Africa" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>
-
-                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MXN - Mexican Peso"/>
-                            <TextView android:id="@+id/tvMxnValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                            <TextView android:id="@+id/tvKwdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.3066"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SAR - Saudi Riyal"/>
+                            <TextView android:id="@+id/tvSarValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3.75"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TRY - Turkish Lira"/>
+                            <TextView android:id="@+id/tvTryValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="43.715"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <!-- Americas & Africa -->
+                        <TextView android:text="Americas and Africa" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BRL - Brazilian Real"/>
-                            <TextView android:id="@+id/tvBrlValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
-                        </LinearLayout>
-                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
-
-                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ZAR - S. African Rand"/>
-                            <TextView android:id="@+id/tvZarValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                            <TextView android:id="@+id/tvBrlValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5.1814"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="EGP - Egyptian Pound"/>
-                            <TextView android:id="@+id/tvEgpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                            <TextView android:id="@+id/tvEgpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="46.8453"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="NZD - NZ Dollar"/>
-                            <TextView android:id="@+id/tvNzdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MXN - Mexican Peso"/>
+                            <TextView android:id="@+id/tvMxnValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="17.212"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PKR - Pakistani Rupee"/>
-                            <TextView android:id="@+id/tvPkrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ZAR - South African Rand"/>
+                            <TextView android:id="@+id/tvZarValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="15.9401"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <!-- Other Currencies (remaining ones alphabetically grouped for simplicity) -->
+                        <TextView android:text="Other Currencies" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="AFN - Afghan Afghani"/>
+                            <TextView android:id="@+id/tvAfnValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="64.7258"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BDT - Bangladesh Taka"/>
-                            <TextView android:id="@+id/tvBdtValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ALL - Albanian Lek"/>
+                            <TextView android:id="@+id/tvAllValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="81.1441"/>
                         </LinearLayout>
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="VND - Vietnam Dong"/>
-                            <TextView android:id="@+id/tvVndValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="AMD - Armenian Dram"/>
+                            <TextView android:id="@+id/tvAmdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="377.5668"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ANG - Netherlands Antillean Guilder"/>
+                            <TextView android:id="@+id/tvAngValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.79"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="AOA - Angolan Kwanza"/>
+                            <TextView android:id="@+id/tvAoaValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="920.9253"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ARS - Argentine Peso"/>
+                            <TextView android:id="@+id/tvArsValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1452.25"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="AWG - Aruban Florin"/>
+                            <TextView android:id="@+id/tvAwgValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.79"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="AZN - Azerbaijani Manat"/>
+                            <TextView android:id="@+id/tvAznValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.7007"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BAM - Bosnia-Herzegovina Convertible Mark"/>
+                            <TextView android:id="@+id/tvBamValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.6474"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BBD - Barbadian Dollar"/>
+                            <TextView android:id="@+id/tvBbdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2.0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BDT - Bangladeshi Taka"/>
+                            <TextView android:id="@+id/tvBdtValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="122.3587"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BGN - Bulgarian Lev"/>
+                            <TextView android:id="@+id/tvBgnValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.5974"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BHD - Bahraini Dinar"/>
+                            <TextView android:id="@+id/tvBhdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.376"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BIF - Burundian Franc"/>
+                            <TextView android:id="@+id/tvBifValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2967.7764"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BMD - Bermudian Dollar"/>
+                            <TextView android:id="@+id/tvBmdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BND - Brunei Dollar"/>
+                            <TextView android:id="@+id/tvBndValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.262"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BOB - Bolivian Boliviano"/>
+                            <TextView android:id="@+id/tvBobValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6.9323"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BSD - Bahamian Dollar"/>
+                            <TextView android:id="@+id/tvBsdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BTN - Bhutanese Ngultrum"/>
+                            <TextView android:id="@+id/tvBtnValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="90.6165"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BWP - Botswana Pula"/>
+                            <TextView android:id="@+id/tvBwpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="13.3848"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BYN - Belarusian Ruble"/>
+                            <TextView android:id="@+id/tvBynValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2.8626"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="BZD - Belize Dollar"/>
+                            <TextView android:id="@+id/tvBzdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2.0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="CDF - Congolese Franc"/>
+                            <TextView android:id="@+id/tvCdfValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2265.2062"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="CLF - Unidad de Fomento"/>
+                            <TextView android:id="@+id/tvClfValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.0216"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="CLP - Chilean Peso"/>
+                            <TextView android:id="@+id/tvClpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="853.9375"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="CNH - Chinese Yuan (Offshore)"/>
+                            <TextView android:id="@+id/tvCnhValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6.9008"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="COP - Colombian Peso"/>
+                            <TextView android:id="@+id/tvCopValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3674.4267"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="CRC - Costa Rican Colón"/>
+                            <TextView android:id="@+id/tvCrcValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="492.0536"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="CUP - Cuban Peso"/>
+                            <TextView android:id="@+id/tvCupValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="24.0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="CVE - Cape Verdean Escudo"/>
+                            <TextView android:id="@+id/tvCveValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="92.8781"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="CZK - Czech Koruna"/>
+                            <TextView android:id="@+id/tvCzkValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="20.4268"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="DJF - Djiboutian Franc"/>
+                            <TextView android:id="@+id/tvDjfValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="177.721"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="DKK - Danish Krone"/>
+                            <TextView android:id="@+id/tvDkkValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6.2862"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="DOP - Dominican Peso"/>
+                            <TextView android:id="@+id/tvDopValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="62.7807"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="DZD - Algerian Dinar"/>
+                            <TextView android:id="@+id/tvDzdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="129.5715"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ERN - Eritrean Nakfa"/>
+                            <TextView android:id="@+id/tvErnValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="15.0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ETB - Ethiopian Birr"/>
+                            <TextView android:id="@+id/tvEtbValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="155.1402"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="FJD - Fijian Dollar"/>
+                            <TextView android:id="@+id/tvFjdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2.1867"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="FKP - Falkland Islands Pound"/>
+                            <TextView android:id="@+id/tvFkpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.7339"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="FOK - Faroese Króna"/>
+                            <TextView android:id="@+id/tvFokValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6.2863"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="GEL - Georgian Lari"/>
+                            <TextView android:id="@+id/tvGelValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2.6825"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="GGP - Guernsey Pound"/>
+                            <TextView android:id="@+id/tvGgpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.7339"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="GHS - Ghanaian Cedi"/>
+                            <TextView android:id="@+id/tvGhsValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="11.0136"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="GIP - Gibraltar Pound"/>
+                            <TextView android:id="@+id/tvGipValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.7339"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="GMD - Gambian Dalasi"/>
+                            <TextView android:id="@+id/tvGmdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="74.1073"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="GNF - Guinean Franc"/>
+                            <TextView android:id="@+id/tvGnfValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="8759.1179"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="GTQ - Guatemalan Quetzal"/>
+                            <TextView android:id="@+id/tvGtqValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="7.6779"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="GYD - Guyanaese Dollar"/>
+                            <TextView android:id="@+id/tvGydValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="209.2431"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="HNL - Honduran Lempira"/>
+                            <TextView android:id="@+id/tvHnlValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="26.458"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="HRK - Croatian Kuna"/>
+                            <TextView android:id="@+id/tvHrkValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6.3464"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="HTG - Haitian Gourde"/>
+                            <TextView android:id="@+id/tvHtgValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="130.9764"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="HUF - Hungarian Forint"/>
+                            <TextView android:id="@+id/tvHufValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="319.465"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="IQD - Iraqi Dinar"/>
+                            <TextView android:id="@+id/tvIqdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1309.7168"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="IRR - Iranian Rial"/>
+                            <TextView android:id="@+id/tvIrrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1231096.6366"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ISK - Icelandic Króna"/>
+                            <TextView android:id="@+id/tvIskValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="122.2694"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="JEP - Jersey Pound"/>
+                            <TextView android:id="@+id/tvJepValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.7339"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="JMD - Jamaican Dollar"/>
+                            <TextView android:id="@+id/tvJmdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="156.4587"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="JOD - Jordanian Dinar"/>
+                            <TextView android:id="@+id/tvJodValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.709"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="KES - Kenyan Shilling"/>
+                            <TextView android:id="@+id/tvKesValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="128.979"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="KGS - Kyrgyzstani Som"/>
+                            <TextView android:id="@+id/tvKgsValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="87.4241"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="KHR - Cambodian Riel"/>
+                            <TextView android:id="@+id/tvKhrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4019.2111"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="KID - Kiribati Dollar"/>
+                            <TextView android:id="@+id/tvKidValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.4083"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="KMF - Comorian Franc"/>
+                            <TextView android:id="@+id/tvKmfValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="414.393"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="KYD - Cayman Islands Dollar"/>
+                            <TextView android:id="@+id/tvKydValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.8333"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="KZT - Kazakhstani Tenge"/>
+                            <TextView android:id="@+id/tvKztValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="494.3144"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="LAK - Laotian Kip"/>
+                            <TextView android:id="@+id/tvLakValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="21609.5757"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="LBP - Lebanese Pound"/>
+                            <TextView android:id="@+id/tvLbpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="89500.0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="LKR - Sri Lankan Rupee"/>
+                            <TextView android:id="@+id/tvLkrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="309.1793"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="LRD - Liberian Dollar"/>
+                            <TextView android:id="@+id/tvLrdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="186.7283"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="LSL - Lesotho Loti"/>
+                            <TextView android:id="@+id/tvLslValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="15.9397"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="LYD - Libyan Dinar"/>
+                            <TextView android:id="@+id/tvLydValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6.3043"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MAD - Moroccan Dirham"/>
+                            <TextView android:id="@+id/tvMadValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="9.1337"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MDL - Moldovan Leu"/>
+                            <TextView android:id="@+id/tvMdlValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="16.9068"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MGA - Malagasy Ariary"/>
+                            <TextView android:id="@+id/tvMgaValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4417.8538"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MKD - Macedonian Denar"/>
+                            <TextView android:id="@+id/tvMkdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="51.7888"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MMK - Myanmar Kyat"/>
+                            <TextView android:id="@+id/tvMmkValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2102.2795"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MNT - Mongolian Tugrik"/>
+                            <TextView android:id="@+id/tvMntValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3593.5827"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MOP - Macanese Pataca"/>
+                            <TextView android:id="@+id/tvMopValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="8.0511"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MRU - Mauritanian Ouguiya"/>
+                            <TextView android:id="@+id/tvMruValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="39.8681"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MUR - Mauritian Rupee"/>
+                            <TextView android:id="@+id/tvMurValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="45.7114"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MVR - Maldivian Rufiyaa"/>
+                            <TextView android:id="@+id/tvMvrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="15.4464"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MWK - Malawian Kwacha"/>
+                            <TextView android:id="@+id/tvMwkValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1741.1385"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MZN - Mozambican Metical"/>
+                            <TextView android:id="@+id/tvMznValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="63.6864"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="NAD - Namibian Dollar"/>
+                            <TextView android:id="@+id/tvNadValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="15.9397"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="NGN - Nigerian Naira"/>
+                            <TextView android:id="@+id/tvNgnValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1353.0691"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="NIO - Nicaraguan Córdoba"/>
+                            <TextView android:id="@+id/tvNioValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="36.8325"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="NOK - Norwegian Krone"/>
+                            <TextView android:id="@+id/tvNokValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="9.5141"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="NPR - Nepalese Rupee"/>
+                            <TextView android:id="@+id/tvNprValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="144.9864"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="OMR - Omani Rial"/>
+                            <TextView android:id="@+id/tvOmrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.3845"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PAB - Panamanian Balboa"/>
+                            <TextView android:id="@+id/tvPabValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.0"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PEN - Peruvian Sol"/>
+                            <TextView android:id="@+id/tvPenValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3.3565"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="PKR - Pakistani Rupee"/>
+                            <TextView
+                                android:id="@+id/tvPkrValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="279.72"/>
                         </LinearLayout>
 
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PGK - Papua New Guinean Kina"/>
+                            <TextView android:id="@+id/tvPgkValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4.2968"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
-<!--                        <TextView android:text="Asia &amp; Pacific" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>-->
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PLN - Polish Złoty"/>
+                            <TextView android:id="@+id/tvPlnValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3.55"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
-<!--                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>-->
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PYG - Paraguayan Guarani"/>
+                            <TextView android:id="@+id/tvPygValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6621.0704"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
-<!--                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">-->
-<!--                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="PHP - Philippine Peso"/>-->
-<!--                            <TextView android:id="@+id/tvPhpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>-->
-<!--                        </LinearLayout>-->
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="QAR - Qatari Riyal"/>
+                            <TextView android:id="@+id/tvQarValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3.64"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="RON - Romanian Leu"/>
+                            <TextView android:id="@+id/tvRonValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4.2878"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="RSD - Serbian Dinar"/>
+                            <TextView android:id="@+id/tvRsdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="98.85"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="RUB - Russian Ruble"/>
+                            <TextView android:id="@+id/tvRubValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="77.2401"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
-<!--                        <TextView android:text="Europe &amp; Middle East" android:textStyle="bold" android:textColor="#2E7D32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>-->
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="RWF - Rwandan Franc"/>
+                            <TextView android:id="@+id/tvRwfValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1459.9532"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
-<!--                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>-->
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SBD - Solomon Islands Dollar"/>
+                            <TextView android:id="@+id/tvSbdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="7.925"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
 
-<!--                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">-->
-<!--                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="KWD - Kuwaiti Dinar"/>-->
-<!--                            <TextView android:id="@+id/tvKwdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0"/>-->
-<!--                        </LinearLayout>-->
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SCR - Seychellois Rupee"/>
+                            <TextView android:id="@+id/tvScrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="13.9055"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SDG - Sudanese Pound"/>
+                            <TextView android:id="@+id/tvSdgValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="511.6948"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SEK - Swedish Krona"/>
+                            <TextView android:id="@+id/tvSekValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="8.9196"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SHP - Saint Helena Pound"/>
+                            <TextView android:id="@+id/tvShpValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.7339"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SLE - Sierra Leonean Leone (new)"/>
+                            <TextView android:id="@+id/tvSleValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="24.6191"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SLL - Sierra Leonean Leone (old)"/>
+                            <TextView android:id="@+id/tvSllValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="24619.1096"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SOS - Somali Shilling"/>
+                            <TextView android:id="@+id/tvSosValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="570.7851"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SRD - Surinamese Dollar"/>
+                            <TextView android:id="@+id/tvSrdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="37.9272"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SSP - South Sudanese Pound"/>
+                            <TextView android:id="@+id/tvSspValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4573.4968"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="STN - São Tomé and Príncipe Dobra"/>
+                            <TextView android:id="@+id/tvStnValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="20.6368"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SYP - Syrian Pound"/>
+                            <TextView android:id="@+id/tvSypValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="113.013"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SZL - Swazi Lilangeni"/>
+                            <TextView android:id="@+id/tvSzlValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="15.9397"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TJS - Tajikistani Somoni"/>
+                            <TextView android:id="@+id/tvTjsValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="9.3492"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TMT - Turkmenistani Manat"/>
+                            <TextView android:id="@+id/tvTmtValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3.4995"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TND - Tunisian Dinar"/>
+                            <TextView android:id="@+id/tvTndValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2.8469"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TOP - Tongan Paʻanga"/>
+                            <TextView android:id="@+id/tvTopValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2.3605"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TTD - Trinidad and Tobago Dollar"/>
+                            <TextView android:id="@+id/tvTtdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6.7652"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TVD - Tuvaluan Dollar"/>
+                            <TextView android:id="@+id/tvTvdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.4083"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TWD - New Taiwan Dollar"/>
+                            <TextView android:id="@+id/tvTwdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="31.4036"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TZS - Tanzanian Shilling"/>
+                            <TextView android:id="@+id/tvTzsValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2569.5916"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="UAH - Ukrainian Hryvnia"/>
+                            <TextView android:id="@+id/tvUahValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="43.0026"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="UGX - Ugandan Shilling"/>
+                            <TextView android:id="@+id/tvUgxValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3526.6969"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="UYU - Uruguayan Peso"/>
+                            <TextView android:id="@+id/tvUyuValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="38.3636"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="UZS - Uzbekistan Som"/>
+                            <TextView android:id="@+id/tvUzsValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="12270.8154"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="VES - Venezuelan Bolívar Soberano"/>
+                            <TextView android:id="@+id/tvVesValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="393.2216"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="VUV - Vanuatu Vatu"/>
+                            <TextView android:id="@+id/tvVuvValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="119.1519"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="WST - Samoan Tālā"/>
+                            <TextView android:id="@+id/tvWstValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2.6727"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="XAF - CFA Franc BEAC"/>
+                            <TextView android:id="@+id/tvXafValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="552.5239"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="XCD - East Caribbean Dollar"/>
+                            <TextView android:id="@+id/tvXcdValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2.7"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="XCG - Caribbean Guilder"/>
+                            <TextView android:id="@+id/tvXcgValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.79"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="XDR - Special Drawing Rights"/>
+                            <TextView android:id="@+id/tvXdrValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.7247"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="XOF - CFA Franc BCEAO"/>
+                            <TextView android:id="@+id/tvXofValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="552.5239"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="XPF - CFP Franc"/>
+                            <TextView android:id="@+id/tvXpfValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="100.5154"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="YER - Yemeni Rial"/>
+                            <TextView android:id="@+id/tvYerValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="238.4218"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ZMW - Zambian Kwacha"/>
+                            <TextView android:id="@+id/tvZmwValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="18.7706"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ZWG - Zimbabwe Gold"/>
+                            <TextView android:id="@+id/tvZwgValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="25.5643"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="8dp"/>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ZWL - Zimbabwean Dollar"/>
+                            <TextView android:id="@+id/tvZwlValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="25.5643"/>
+                        </LinearLayout>
+                        <!-- No final divider after last item -->
 
                     </LinearLayout>
+
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
 
@@ -429,23 +1469,14 @@
                 app:cardElevation="4dp"
                 android:padding="12dp">
                 <LinearLayout
+                    android:id="@+id/recent_conversions_container"
                     android:padding="18dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <TextView
-                        android:text="1 USD → 0.92 EUR"
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"/>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginVertical="6dp"
-                        android:background="?attr/colorOutline"/>
-                    <TextView
-                        android:text="1 GBP → 1.27 USD"
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"/>
+
+                    <!-- Initial hardcoded TextViews will be removed and replaced by dynamic ones -->
+
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>

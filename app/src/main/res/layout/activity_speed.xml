@@ -417,14 +417,12 @@
                 app:cardCornerRadius="16dp"
                 app:cardElevation="4dp">
                 <LinearLayout
+                    android:id="@+id/recent_conversions_container"
                     android:padding="18dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <TextView
-                        android:text="100 km/h → 62.1371 mph"
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"/>
+                    <!-- Initial hardcoded TextViews will be removed and replaced by dynamic ones -->
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
