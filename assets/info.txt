@@ -1,0 +1,55 @@
+
+Short description: All-in-one smart Unit Converter, fast & lightweight with live currency rates.
+
+
+Unit Converter Lite is a fast, lightweight, and reliable all-in-one conversion tool designed to make everyday calculations simple and accurate. Whether you are a student, traveler, engineer, or professional, this app provides instant conversions through a clean and user-friendly interface.
+
+The application is built for performance and convenience. Most features work completely offline, allowing you to convert units anytime and anywhere without needing an internet connection. When internet access is available, the app can update exchange rates to provide accurate live currency conversions.
+
+Instead of installing multiple apps, Unit Converter Lite brings essential conversion tools together in one place, optimized for smooth navigation and minimal device resource usage.
+
+⭐ Conversion Categories
+
+📏 Length Converter
+Convert between meters, kilometers, centimeters, millimeters, miles, yards, feet, inches, and more. Ideal for education, engineering, and everyday tasks.
+
+⚖️ Weight / Mass Converter
+Switch easily between kilograms, grams, milligrams, pounds, ounces, and other commonly used units with accurate results.
+
+🌡️ Temperature Converter
+Instantly convert between Celsius, Fahrenheit, and Kelvin for academic, travel, or practical needs.
+
+📐 Area Converter
+Convert square meters, hectares, acres, square feet, square kilometers, and more — helpful for land measurement and planning.
+
+🚗 Speed Converter
+Convert between km/h, mph, meters per second, and other speed units quickly and easily.
+
+💱 Currency Converter (Live Updates)
+When connected to the internet, the app retrieves real-time exchange rates via API integration to provide up-to-date international currency conversions. This ensures accurate results for travel, online shopping, or financial reference.
+When offline, the rest of the app continues working normally.
+
+⚡ Why Choose Unit Converter?
+
+✅ Works fully offline for most conversions
+✅ Internet used only for currency rate updates
+✅ Lightweight and fast performance
+✅ Clean and modern interface
+✅ Accurate and reliable calculations
+✅ Easy navigation across categories
+✅ Optimized for a wide range of Android devices
+✅ Suitable for daily, academic, or professional use
+
+The app is designed to reduce complexity and maximize usability, giving you quick access to the tools you need without clutter or unnecessary permissions.
+
+🎯 Perfect For
+
+Students solving math or science problems
+Travelers handling unit or currency differences
+Engineers and developers
+Online shoppers checking currency values
+Anyone needing quick, reliable conversions
+
+🌐 Continuous Improvement
+
+We are continuously improving Unit Converter Lite by optimizing performance, enhancing usability, and expanding supported unit categories. User feedback plays an important role in shaping future updates.
